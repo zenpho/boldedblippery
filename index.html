@@ -6,28 +6,34 @@
     html, body {
       font-family: 'Press Start 2P', fixed-width;
       font-size: 30px;
+      line-height: 100px;
+      text-align: center;
       background-color: #5090d0;
       color: #ffffff;
+    }
+
+    #countdown {
+      font-size: 10px;
     }
   </style>
 </head>
 <body>
-  <center>
-    Bolded Blippery?
-    Nah, <a href="https://www.etsy.com/people/FoldedFrippery">Folded Frippery</a>
-    <span id="countdown">5</span>
-  </center>
+    Bolded Blippery?<br>
+    <a id="countdown" href="https://www.etsy.com/people/FoldedFrippery">5</a><br>
   
   <script>
-    function timerActions() {
+    var timerActions = function() {
       var countDown = document.getElementById("countdown");
-      var count = parseInt( countDown.innerHTML );
-      count = count - 1;
-      countDown.innerHtml = count;
-      
-      timerId = window.setTimeout(timerActions, 1000);
+      var count = parseInt( countDown.textContent );
+
+      if ( count > 0 ) {
+        count = count - 1;
+        countDown.textContent = count;  
+      }
+      else {
+        countDown.textContent = "https://www.etsy.com/people/FoldedFrippery";
+      }
     }
-    
-    var timerId = window.setTimeout(timerActions, 1000);
+    window.setInterval(timerActions, 1000);
   </script>
 </body>
