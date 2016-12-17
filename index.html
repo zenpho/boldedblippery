@@ -8,8 +8,24 @@
       background-color: #5090d0;
       color: #ffffff;
     }
+  </style>
 </head>
 <body>
-Bolded Blippery?
-Nah, <a href="https://www.etsy.com/people/FoldedFrippery">Folded Frippery</a>
+  <center>
+    Bolded Blippery?
+    Nah, <a href="https://www.etsy.com/people/FoldedFrippery">Folded Frippery</a>
+    <span id="countdown">5</span>
+  </center>
+  
+  <script>
+    function timerActions() {
+      var countDown = document.getElementById("countdown");
+      var count = parseInt( countDown.innerHTML );
+      count -= 1;
+      countDown.innerHtml = count;
+      
+      timerId = window.setTimeout(timerActions, 1000);
+    }
+    
+    var timerId = window.setTimeout(timerActions, 1000);
 </body>
